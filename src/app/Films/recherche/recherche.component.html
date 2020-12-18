@@ -1,0 +1,22 @@
+<div class='search-section'>
+  <div class="head-content">
+    <h2>Recherche un film:</h2>
+    <!--Getting film title input from the user-->
+    <input type="text" [(ngModel)]="title" placeholder="MovieTitle" class="form-control" /><br>
+    <button (click)="getFilm(title)" class="btn btn-primary btm-block">Recherche</button>
+  </div>
+  <!--This section will display the search result based on the film title given by user-->
+  <section class="d-flex flex-wrap">
+    <div *ngFor="let film of films" class="card">
+      <p class="title">Title: {{film.title}}</p>
+      <p>Date de sortie: {{film.release_date}}</p>
+      <div *ngIf='film.poster_path!=null'>
+        <img class="film-poster" src="https://image.tmdb.org/t/p/original{{ film.poster_path }}" alt="Movie Poster">
+      </div>
+       <div class="card-body">
+        <button class="btn btn-primary" (click)="add(film)"> Add to Favourites</button><br>
+        <small [class.error-message]='film.invalid' *ngIf='film.invalid'>{{errorMsg}}</small>
+      </div> 
+    </div>
+  </section>
+</div>
