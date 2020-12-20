@@ -2,6 +2,7 @@
     <div class="head-content">
         <h2><i>Liste des Films</i></h2>
     </div>
+    
     <section class="d-flex flex-wrap">
         <div *ngFor="let film of films" class="card">
             <p class="title">Titre: {{film.original_title}}</p>
@@ -12,5 +13,6 @@
             </div>
         </div>
     </section>
+    <script> console.log(films);</script>
 
 </div>

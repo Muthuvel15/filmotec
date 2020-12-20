@@ -16,21 +16,17 @@ export class RechercheComponent implements OnInit {
   title: string;
   films: Film = null;
   errorMsg: string;
-  filmFav: string;
- 
-  // private authService: AuthenticationService
+
+
   constructor(private FilmService: FilmService, private rechercheFilmService: rechercheFilmService) { }
 
   getFilm(title: string) {
     this.rechercheFilmService.getfilm(title)
       .then(response => this.films = response.results);
   }
-  
-  
-
 
   ngOnInit(): void {
-    
+
   }
 
 }

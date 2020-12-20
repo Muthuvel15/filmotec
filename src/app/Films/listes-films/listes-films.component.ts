@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { rechercheFilmService } from '../../Services/rechercheService';
+import { FilmService } from '../../Services/FilmService';
 
 
 @Component({
@@ -10,11 +10,14 @@ import { rechercheFilmService } from '../../Services/rechercheService';
 export class ListesFilmsComponent implements OnInit {
   
   films = [];
-  constructor(private rechercheFilmService: rechercheFilmService) { }
+  constructor(private FilmService2 : FilmService) { }
 
   ngOnInit(): void {
-    this.rechercheFilmService.getMovie()
+    this.FilmService2.getMovie()
     .then(response => this.films = response.results);
+    console.log(this.films);
   }
+  
+  
 
 }

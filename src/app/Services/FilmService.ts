@@ -24,6 +24,13 @@ export class FilmService {
       });
   }
 
+    
+  getMovie() {
+    return fetch(
+      environment.baseURL + 'discover/movie?api_key=' + environment.apiKey
+    ).then(response => response.json());
+  }
+
   Addfilm(film: Film, user: string): Observable<Film> {
     return this.http.post<Film>(environment.localUrl + '/' + user, film);
   }
