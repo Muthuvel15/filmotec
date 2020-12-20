@@ -7,7 +7,6 @@ export class Film {
     overview: string;
     vote_averagge: number;
     vote_count: number;
-    popularity: number;
     poster_path: string;
     crew_list: Array<Crew>;
     actor_list: Array<Actor>;

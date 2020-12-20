@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-//import { MatButtonModule } from '@angular/material/button';
+// import { MatButtonModule } from '@angular/material/button';
 
 // MatIconModule,
 
@@ -12,17 +12,18 @@ import { AppComponent } from './app.component';
 import { ListesFilmsComponent } from './Films/listes-films/listes-films.component';
 import { RechercheComponent } from './Films/recherche/recherche.component';
 import { DetailFilmComponent } from './Films/detail-film/detail-film.component';
-import { ListesFavouriteFilmsComponent } from './Films/listes-favourite-films/listes-favourite-films.component';
+import { ListeFavorisFilmComponent } from './Films/liste-favoris-film/liste-favoris-film.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { PageAccuielComponent } from './page-accuiel/page-accuiel.component';
+import { ListesFilmFavorisComponent } from './Films/recherche/listes-film-favoris/listes-film-favoris.component';
 
-
-
-// Service 
-import { FilmService2 } from './Services/filmService';
+// Service
 import { rechercheFilmService } from './Services/rechercheService';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FilmService} from './Services/filmService';
+import { AuthenticationService } from './Services/authentication.service';
+
+
 
 @NgModule({
   declarations: [
@@ -30,10 +31,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ListesFilmsComponent,
     RechercheComponent,
     DetailFilmComponent,
-    ListesFavouriteFilmsComponent,
     HeaderComponent,
     FooterComponent,
-    PageAccuielComponent
+    ListeFavorisFilmComponent,
+    ListesFilmFavorisComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // MatButtonModule
 
   ],
-  providers: [FilmService2,rechercheFilmService],
+  providers: [FilmService, rechercheFilmService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
